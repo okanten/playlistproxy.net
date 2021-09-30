@@ -1,0 +1,301 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700&display=swap");
+header nav {
+  text-align: center;
+  padding-top: 1em;
+}
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+header nav ul li {
+  padding: 0;
+}
+header nav ul li a {
+  font-family: "Hind Siliguri", sans-serif;
+  padding: 0.5em 1em;
+  display: block;
+}
+header nav ul li a:focus {
+  outline: none;
+  border-bottom: 1px solid palevioletred;
+}
+
+@media screen and (min-width: 769px) {
+  header nav ul li {
+    display: inline-block;
+  }
+}
+#hamlabel, #hambtn {
+  display: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+  #hamlabel {
+    display: inline-block;
+    color: palevioletred;
+    font-style: normal;
+    font-size: 1.2em;
+    padding: 1em;
+  }
+
+  #nav-items {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    background-color: rgba(80, 80, 80, 0.7);
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+
+  #nav-items, #hambtn {
+    display: none;
+  }
+
+  #hambtn:checked ~ #nav-items {
+    display: block;
+  }
+
+  header nav ul li  {
+    display: block;
+  }
+  header nav ul li  a {
+    display: block;
+  }
+}
+@media screen and (min-width: 768px) {
+  #nav-items {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    background-color: rgba(80, 80, 80, 0.7);
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+}
+.logo-bg {
+  background-repeat: no-repeat;
+  background-size: 1.2em;
+  background-position: left;
+  padding-left: 0.5em;
+}
+
+.spotify {
+  background-image: url("/anonspot/static/img/logo/spotify.svg");
+}
+
+.home {
+  background-image: url("../img/logo/home.svg");
+}
+
+.github {
+  background-image: url("../img/logo/github.svg");
+}
+
+.info {
+  background-image: url("../img/logo/info.svg");
+}
+
+/* unvisited link */
+a:link {
+  color: palevioletred;
+}
+
+/* visited link */
+a:visited {
+  color: palevioletred;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: mediumvioletred;
+}
+
+.block {
+  display: block;
+}
+
+.fill-width {
+  width: 100%;
+}
+
+.container-center {
+  height: 20em;
+  position: relative;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.center-vertical {
+  position: relative;
+  top: 30%;
+}
+
+.center-both {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.padding-bottom {
+  padding-bottom: 1em;
+}
+
+input {
+  background-color: rgba(100, 100, 100, 0.8);
+  padding: 0.5em;
+  color: white;
+  border-radius: 0.3em;
+}
+input[type=text], input[type=password] {
+  border: none;
+}
+input[type=text]:hover , input[type=password]:hover  {
+  background-color: gray;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: lightblue;
+  color: black;
+}
+input[type=button], input[type=submit] {
+  border: none;
+}
+input[type=button]:hover, input[type=submit]:hover {
+  background-color: gray;
+}
+input[type=button]:focus, input[type=submit]:focus {
+  background-color: lightblue;
+  color: black;
+}
+
+input:not([type=button], [type=submit]) {
+  margin-bottom: 1em;
+}
+
+#playlist_id {
+  width: 100%;
+}
+
+.newline {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+@media screen and (max-width: 768px) {
+  .newline {
+    width: 100%;
+  }
+}
+body {
+  height: 98vh;
+  background-image: url('../img/bg.jpg')
+  background-repeat: no-repeat;
+}
+
+.grid-container {
+  color: white;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 0.5fr 0.5fr 1fr 1fr 0.5fr 0.5fr;
+  grid-template-rows: 0.1fr 0.3fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas: "top top top top top top" "header-nav header-nav header-nav header-nav header-nav header-nav" ". title title title title ." ". form form form form ." ". form form form form .";
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.3em;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-image: url('../img/mobilebg.jpg')
+  }
+
+  .grid-container {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+.header-nav {
+  grid-area: header-nav;
+}
+
+.top {
+  grid-area: top;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  grid-area: form;
+  justify-self: center;
+  align-self: stretch;
+  width: 100%;
+}
+
+.title {
+  grid-area: title;
+}
+
+.playlist-urls {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .darken {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 65%;
+    padding-bottom: 1em;
+    border-radius: 1em 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: red;
+}
+
+/*# sourceMappingURL=main.css.map */

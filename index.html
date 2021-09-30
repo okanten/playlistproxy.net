@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>PlaylistProxy - Share playlists anonymously</title>
+  <meta name="description" content="PlaylistProxy - Share playlists anonymously">
+  <meta name="author" content="PlaylistProxy">
+
+  <link rel="stylesheet" href="static/css/main.css">
+  <script src="static/js/main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="bg-img"></div>
+	<main class="grid-container" id="main-content">
+    <header class="header-nav">
+      <nav>
+        <label id="hamlabel" for="hambtn">&#9776;</label>
+        <input type="checkbox" id="hambtn">
+        <ul id="nav-items">
+          <li class="logo-bg home"><a href="index.html">Home</a></li>
+          <li class="logo-bg github"><a target="_blank" href="https://github.com/okanten">GitHub</a></li>
+          <li class="logo-bg info"><a href="about.html">Why?</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="title">
+      <h3 class="text-center">Share spotify playlists anonymously</h3>
+      <p class="text-center">Paste spotify playlist url below to generate an identical (anonymous) playlist</p>
+        <section id="playlistSection" class="playlist-urls hidden">
+          <p class="text-center"><a href="" id="proxyPlaylistIdUrl" target="_blank" alt="new spotify playlist link"></a></p>
+          <input class="text-center" id="proxyPlaylistIdUri" type="text" readonly value="spotify:playlist:{{playlist_id}}" />
+          <p class="text-center" id="copyProgress">Cloning playlist</p>
+        </section>
+        <hr />
+    </section>
+    <section class="form">
+      <form id="clonePlaylistForm" class="newline" class="fill-width">
+        <input type="text" id="playlistName" placeholder="Playlist name (optional)">
+        <input type="text" id="playlistDesc" placeholder="Playlist description (optional)">
+        <input type="text" id="playlistUrl" placeholder="Playlist URL or URI">
+        <input type="submit" id="btnSubmit" value="Anonymize" />
+      </form>
+    </section>
+	</main>
+</body>
+</html>
