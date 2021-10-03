@@ -30,7 +30,7 @@ const createPlaylist = async () => {
     $("proxyPlaylistIdUri").value = "spotify:playlist:" + playlistId
     $("proxyPlaylistIdUrl").innerHTML = "https://open.spotify.com/playlist/" + playlistId
     $("proxyPlaylistIdUrl").setAttribute("href", "https://open.spotify.com/playlist/" + playlistId)
-    $("playlistSection").classList.toggle("hidden")
+    $("playlistSection").classList.remove("hidden")
     $("proxyPlaylistIdUri").focus()
     const clonePlData = { "url": playlistUrl, ...newPlaylist}
     clonePlaylist(clonePlData)
