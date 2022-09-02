@@ -35,7 +35,7 @@ const checkUrl = (playlistUrl => {
 
 })
 
-const createPlaylist = async () => {
+  const createPlaylist = () => {
   let playlistName = $("playlistName").value
   let playlistDesc = $("playlistDesc").value
   let playlistUrl = $("playlistUrl").value
