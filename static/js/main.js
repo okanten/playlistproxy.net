@@ -14,6 +14,9 @@ window.addEventListener('load', () => {
 
 // https://stackoverflow.com/a/43467144
 const checkUrl = (playlistUrl => {
+  if (playlistUrl === "") {
+    return false;
+  }
   let url;
   try {
     url = new URL(playlistUrl)
@@ -38,8 +41,8 @@ const createPlaylist = async () => {
   let playlistUrl = $("playlistUrl").value
   if (!checkUrl(playlistUrl)) { 
     $("copyProgress").innerHTML = "url is not valid";
-    $("copyProgress").classList.add("error")
-    return;
+    $("copyProgress").classList.add("error");
+    return false;
   }
   let createPlData = { "name": playlistName, "description": playlistDesc }
   const url = 'https://api.playlistproxy.net/create-playlist/'
