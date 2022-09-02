@@ -12,10 +12,35 @@ window.addEventListener('load', () => {
   })
 })
 
+// https://stackoverflow.com/a/43467144
+const checkUrl = (playlistUrl => {
+  let url;
+  try {
+    url = new URL(playlistUrl)
+  } catch(_) {
+    return false;
+  }
+  if(!(url.protocol === "http:" || url.protocol === "https:")) {
+    return false;
+  }
+  
+  if(!(url.hostname === "www.spotify.com" || "spotify.com")) {
+    return false;
+  }
+  
+  return true;
+
+})
+
 const createPlaylist = async () => {
   let playlistName = $("playlistName").value
   let playlistDesc = $("playlistDesc").value
   let playlistUrl = $("playlistUrl").value
+  if (!checkUrl(playlistUrl)) { 
+    $("copyProgress").innerHTML = "url is not valid";
+    $("copyProgress").classList.add("error")
+    return;
+  }
   let createPlData = { "name": playlistName, "description": playlistDesc }
   const url = 'https://api.playlistproxy.net/create-playlist/'
   const response = await fetch(url, {
