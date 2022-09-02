@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
 
 // https://stackoverflow.com/a/43467144
 const checkUrl = (playlistUrl => {
-  if (playlistUrl === "") {
+  if (playlistUrl == "") {
     return false;
   }
   let url;
@@ -35,7 +35,7 @@ const checkUrl = (playlistUrl => {
 
 })
 
-  const createPlaylist = () => {
+const createPlaylist = async () => {
   let playlistName = $("playlistName").value
   let playlistDesc = $("playlistDesc").value
   let playlistUrl = $("playlistUrl").value
