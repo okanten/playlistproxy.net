@@ -29,6 +29,9 @@
     <section class="title">
       <h3 class="text-center">Share spotify playlists anonymously</h3>
       <p class="text-center">Paste spotify playlist url below to generate an identical (anonymous) playlist</p>
+        <section id="errorSection" class="playlist-urls hidden"> 
+          <p class="text-center error" id="error">Cloning playlist</p>
+        </section> 
         <section id="playlistSection" class="playlist-urls hidden">
           <p class="text-center"><a href="" id="proxyPlaylistIdUrl" target="_blank" alt="new spotify playlist link"></a></p>
           <input class="text-center" id="proxyPlaylistIdUri" type="text" readonly value="spotify:playlist:{{playlist_id}}" />

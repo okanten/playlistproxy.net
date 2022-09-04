@@ -15,20 +15,22 @@ window.addEventListener('load', () => {
 // https://stackoverflow.com/a/43467144
 const checkUrl = (playlistUrl => {
   if (playlistUrl == "") {
-    return false;
+    return "Spotify URL cannot be empty"
   }
   let url;
   try {
     url = new URL(playlistUrl)
   } catch(_) {
-    return false;
+    return "Not a valid URL"
   }
-  if(!(url.protocol === "http:" || url.protocol === "https:")) {
-    return false;
+  if(!(url.protocol == "http:" || url.protocol == "https:" || url.protocol == "spotify:")) {
+    console.log("Failed at protocol check")
+    return "URL/URI protocol is not valid (must be http:, https: or spotify:)"
   }
-  
-  if(!(url.hostname === "www.spotify.com" || "spotify.com")) {
-    return false;
+   
+  if(url.protocol != "spotify:" && (url.hostname != "www.open.spotify.com" || url.hostname != "open.spotify.com")) {
+    console.log("failed at hostname")
+    return "Hostname is not valid (must be open.spotify.com or spotify URI)"
   }
   
   return true;
@@ -36,15 +38,18 @@ const checkUrl = (playlistUrl => {
 })
 
 const createPlaylist = async () => {
+  $("errorSection").classList.add("hidden")
   let playlistName = $("playlistName").value
   let playlistDesc = $("playlistDesc").value
   let playlistUrl = $("playlistUrl").value
-  if (!checkUrl(playlistUrl)) { 
-    $("copyProgress").innerHTML = "url is not valid";
-    $("copyProgress").classList.add("error");
+  const urlValid = checkUrl(playlistUrl)
+  if (urlValid !== true) { 
+    console.log("Failed url check")
+    $("error").innerHTML = urlValid;
+    $("errorSection").classList.remove("hidden")
     return false;
   }
-  let createPlData = { "name": playlistName, "description": playlistDesc }
+  let createPlData = { "name": playlistName, "description": playlistDesc, "url": playlistUrl }
   const url = 'https://api.playlistproxy.net/create-playlist/'
   const response = await fetch(url, {
     method: 'POST',
@@ -61,13 +66,12 @@ const createPlaylist = async () => {
     $("proxyPlaylistIdUrl").setAttribute("href", "https://open.spotify.com/playlist/" + playlistId)
     $("playlistSection").classList.remove("hidden")
     $("proxyPlaylistIdUri").focus()
-    const clonePlData = { "url": playlistUrl, ...newPlaylist}
-    clonePlaylist(clonePlData)
+    //const clonePlData = { "url": playlistUrl, ...newPlaylist}
+    clonePlaylist(newPlaylist)
   }
 }
 
 const clonePlaylist = async (clonePlData) => {
-  console.log(clonePlData)
   const url = 'https://api.playlistproxy.net/clone-playlist/'
   const response = await fetch(url, {
     method: 'POST',
