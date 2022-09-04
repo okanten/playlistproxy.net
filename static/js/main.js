@@ -67,7 +67,8 @@ const createPlaylist = async () => {
     $("playlistSection").classList.remove("hidden")
     $("proxyPlaylistIdUri").focus()
     //const clonePlData = { "url": playlistUrl, ...newPlaylist}
-    clonePlaylist(newPlaylist)
+    const clonePlData = {...newPlaylist}
+    clonePlaylist(clonePlData)
   }
 }
 
