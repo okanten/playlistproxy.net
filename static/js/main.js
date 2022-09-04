@@ -28,7 +28,7 @@ const checkUrl = (playlistUrl => {
     return "URL/URI protocol is not valid (must be http:, https: or spotify:)"
   }
    
-  if(url.protocol != "spotify:" && (url.hostname != "www.open.spotify.com" || url.hostname != "open.spotify.com")) {
+  if(url.protocol != "spotify:" && url.hostname != "www.open.spotify.com" && url.hostname != "open.spotify.com") {
     console.log("failed at hostname")
     return "Hostname is not valid (must be open.spotify.com or spotify URI)"
   }
