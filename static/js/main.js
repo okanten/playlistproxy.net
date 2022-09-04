@@ -50,7 +50,7 @@ const createPlaylist = async () => {
     return false;
   }
   let createPlData = { "name": playlistName, "description": playlistDesc, "url": playlistUrl }
-  const url = 'https://api.playlistproxy.net/create-playlist/'
+  const url = 'https://api.playlistproxy.net/create-playlist'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -67,13 +67,12 @@ const createPlaylist = async () => {
     $("playlistSection").classList.remove("hidden")
     $("proxyPlaylistIdUri").focus()
     //const clonePlData = { "url": playlistUrl, ...newPlaylist}
-    const clonePlData = {...newPlaylist}
-    clonePlaylist(clonePlData)
+    clonePlaylist(newPlaylist)
   }
 }
 
 const clonePlaylist = async (clonePlData) => {
-  const url = 'https://api.playlistproxy.net/clone-playlist/'
+  const url = 'https://api.playlistproxy.net/clone-playlist'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
