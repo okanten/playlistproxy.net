@@ -39,6 +39,7 @@ const checkUrl = (playlistUrl => {
 
 const createPlaylist = async () => {
   $("errorSection").classList.add("hidden")
+  $("playlistSection").classList.add("hidden")
   let playlistName = $("playlistName").value
   let playlistDesc = $("playlistDesc").value
   let playlistUrl = $("playlistUrl").value
