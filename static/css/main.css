@@ -216,6 +216,19 @@ input:not([type=button], [type=submit]) {
   .newline {
     width: 100%;
   }
+  p {
+    font-size: 1.5em;
+  }
+  .playlist-urls p {
+    font-size: 1.1em;
+  }
+
+  input,
+  input[type=submit] {
+    padding: 1.5em;
+  }
+  
+
 }
 body {
   height: 100vh;
@@ -237,8 +250,6 @@ body {
 
 @media screen and (max-width: 768px) {
 
-  .grid-container {
-  }
 }
 .header-nav {
   grid-area: header-nav;
