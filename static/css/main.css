@@ -24,6 +24,12 @@ header nav ul li a:focus {
   border-bottom: 1px solid palevioletred;
 }
 
+.playlist-urls {
+  word-break: break-all; 
+  inline-size: 90%;
+  overflow-wrap: break-word;
+}
+
 @media screen and (min-width: 769px) {
   header nav ul li {
     display: inline-block;
@@ -212,9 +218,8 @@ input:not([type=button], [type=submit]) {
   }
 }
 body {
-  height: 98vh;
-  background-image: url('../img/bg.jpg')
-  background-repeat: no-repeat;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .grid-container {
@@ -227,17 +232,12 @@ body {
   align-items: center;
   justify-items: center;
   grid-template-areas: "top top top top top top" "header-nav header-nav header-nav header-nav header-nav header-nav" ". title title title title ." ". form form form form ." ". form form form form .";
-  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 0.3em;
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    background-image: url('../img/mobilebg.jpg')
-  }
 
   .grid-container {
-    background-color: rgba(0, 0, 0, 0.9);
   }
 }
 .header-nav {
