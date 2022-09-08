@@ -52,8 +52,7 @@ const createPlaylist = async () => {
     return false;
   }
   let createPlData = { "name": playlistName, "description": playlistDesc, "url": playlistUrl }
-  //const url = 'https://api.playlistproxy.net/create-playlist'
-  const url = 'http://localhost:8000/create-playlist'
+  const url = 'https://api.playlistproxy.net/create-playlist'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -75,9 +74,8 @@ const createPlaylist = async () => {
 }
 
 const clonePlaylist = async (clonePlData) => {
-  //const url = 'https://api.playlistproxy.net/clone-playlist'
+  const url = 'https://api.playlistproxy.net/clone-playlist'
 $("instructions").classList.add("hidden")
-  const url = 'http://localhost:8000/clone-playlist'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
