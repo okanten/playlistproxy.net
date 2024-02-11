@@ -41,7 +41,7 @@ const createPlaylist = async () => {
   $("errorSection").classList.add("hidden")
   $("playlistSection").classList.add("hidden")
   let playlistName = $("playlistName").value
-  let playlistDesc = $("playlistDesc").value
+  let playlistDesc = null
   let playlistUrl = $("playlistUrl").value
   const urlValid = checkUrl(playlistUrl)
   if (urlValid !== true) { 
