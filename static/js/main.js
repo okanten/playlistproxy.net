@@ -38,6 +38,8 @@ const checkUrl = (playlistUrl => {
 })
 
 const createPlaylist = async () => {
+  $("btnSubmit").setAttribute("disabled", true);
+  $("btnSubmit").value = "Creating playlist";
   $("errorSection").classList.add("hidden")
   $("playlistSection").classList.add("hidden")
   let playlistName = $("playlistName").value
@@ -49,6 +51,7 @@ const createPlaylist = async () => {
     $("error").innerHTML = urlValid;
     $("errorSection").classList.remove("hidden")
     $("instructions").classList.add("hidden")
+    $("btnSubmit").removeAttribute("disabled");
     return false;
   }
   let createPlData = { "name": playlistName, "description": playlistDesc, "url": playlistUrl }
@@ -60,6 +63,15 @@ const createPlaylist = async () => {
     },
     body: JSON.stringify(createPlData)
   })
+  if (!response.ok) {
+    const error = await response.json()
+    $("error").innerHTML = error.message;
+    $("errorSection").classList.remove("hidden")
+    $("instructions").classList.add("hidden")
+    $("btnSubmit").removeAttribute("disabled");
+    $("btnSubmit").value = "Anonymize";
+    return false;
+  }
   const newPlaylist = await response.json()
   const { playlistId } = newPlaylist
   if (playlistId) {
@@ -71,6 +83,8 @@ const createPlaylist = async () => {
     //const clonePlData = { "url": playlistUrl, ...newPlaylist}
     clonePlaylist(newPlaylist)
   }
+  $("btnSubmit").removeAttribute("disabled");
+  $("btnSubmit").value = "Anonymize";
 }
 
 const clonePlaylist = async (clonePlData) => {
