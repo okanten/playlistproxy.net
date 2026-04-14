@@ -240,7 +240,7 @@ body {
   display: grid;
   height: 100%;
   grid-template-columns: 0.5fr 0.5fr 1fr 1fr 0.5fr 0.5fr;
-  grid-template-rows: 0.1fr 0.3fr 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 0.3fr auto 1fr 1fr;
   gap: 0px 0px;
   align-items: center;
   justify-items: center;
@@ -311,11 +311,40 @@ body {
 
 
 .notice {
-  background-color: #ff8c69;
+  background-color: #ffaa85;
   color: black;
-  padding: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  padding: 1.5em 2em;
+  border-radius: 0.4em;
+  align-self: start;
+}
+
+.notice h2 {
+  margin-top: 0;
+}
+
+.notice a:link,
+.notice a:visited {
+  color: #8b0000;
+}
+
+.notice a:hover {
+  color: #cc0000;
+}
+
+.notice a:active {
+  color: #550000;
+}
+
+.notice a[target="_blank"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-left: 0.2em;
+  vertical-align: super;
+  background-image: url("../img/external-link.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /*# sourceMappingURL=main.css.map */
